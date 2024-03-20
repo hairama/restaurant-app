@@ -29,7 +29,7 @@ body {
 }
 
 .main-container {
-    max-width: 600px;
+    max-width: 375px;
     margin: 0px auto;
     /* border: 10px solid red; */
 }
@@ -41,9 +41,9 @@ body {
     border-bottom: 1px solid #D2D2D2;  
     align-items: center; 
     justify-content: space-between;
-    margin: 0px 46px 0px 46px;
+    margin: 0px 16px 0px 16px;
     /* border: 2px solid green; */
-    width: 508px;
+    max-width: 375px;
 }
 
 .menu-card-emoji {
@@ -51,7 +51,6 @@ body {
 }
 
 .add-to-order-btn {
-    margin-left: 100px;
     border-radius: 50%;
     border: 1px solid lightgray;
     background-color: #ffffff;
@@ -109,7 +108,7 @@ h2 {
     /* text-align: center; */
     margin: 0px 26px;
     padding: 0px;
-    width: 508px;
+    max-width: 375px;
     justify-content: space-between;
 }
 
