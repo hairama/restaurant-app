@@ -23,10 +23,11 @@ document.addEventListener("click", function(e) {
         openPaymentModal()
     }
     if (e.target.dataset.overlay) {
-        document.getElementById("overlay").style.display = "none"
-        paymentModal.style.display = "none"
+        closePaymentModal()
     }
 })
+
+
 
 function renderMenu() {
     appMenu.innerHTML = menuArray.map(function(menuItem){
@@ -94,7 +95,7 @@ function renderOrder() {
                                     <p>Total price:</p>
                                     <p>$${orderPrice}</p>
                                 </div>
-                                <button class="complete-order-button" data-complete="complete">Complete Order</p> 
+                                <button class="complete-or-pay-button" data-complete="complete">Complete Order</p> 
                             </div>
                             `                           
 }
@@ -103,15 +104,58 @@ function openPaymentModal() {
     paymentModal.innerHTML =    `
                                 <div class="payment-modal">
                                     <h2>Enter card details</h2>
-                                    <form>
-                                        <input type="text" name="name" placeholder="Enter your name">
-                                        <input type="text" name="card" placeholder="Enter card number">
-                                        <input type="text" name="cvv" placeholder="Enter CVV">
+                                    <form id="payment-form">
+                                        <input 
+                                        required
+                                        type="text" 
+                                        name="name" 
+                                        id="name"
+                                        placeholder="Enter your name"
+                                        >
+                                        <input 
+                                        required
+                                        type="text" 
+                                        name="card" 
+                                        id="card"
+                                        placeholder="Enter card number"
+                                        >
+                                        <input 
+                                        required
+                                        type="text" 
+                                        name="cvv" 
+                                        id="cvv"
+                                        placeholder="Enter CVV">
+                                        <button class="complete-or-pay-button" data-pay="pay">Pay</button>
                                     </form>
-                                    <button>Pay</button>
+                                    
                                 </div>
                                 `
     paymentModal.style.display = "flex"
     document.body.style.overflow = 'hidden'
     overlay.style.display = 'block'
+
+    const paymentForm = document.getElementById('payment-form')
+
+    paymentForm.addEventListener('submit', function(e){
+        e.preventDefault()
+        const nameInput = document.getElementById("name")
+        const customerName = nameInput.value
+        
+        closePaymentModal()
+        displayThankyouMessage(customerName)
+    })
+}
+
+function closePaymentModal() {
+    document.getElementById("overlay").style.display = "none"
+    paymentModal.style.display = "none"
+    document.body.style.overflow = 'visible'
+}
+
+function displayThankyouMessage(customerName) {
+    orderSection.innerHTML = `
+                                <div class="thank-you-message">
+                                    <p>Thanks, ${customerName}! Your order is on its way!</p>
+                                </div>
+                            `
 }
