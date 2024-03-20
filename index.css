@@ -4,6 +4,7 @@ body {
     font-family: "Smythe", Verdana, Geneva, Tahoma, sans-serif, system-ui;
     font-weight: 400;
     font-style: normal;
+    user-select: none;
 }
 
 .main-banner {
@@ -145,3 +146,45 @@ h2 {
     margin-top: 15px;
     font-size: 28px;
 }
+
+.payment-modal {
+    display: flex; /*flex when displayed*/
+    flex-direction: column;
+    position: fixed;
+    margin: 100px 15px;
+    bottom: 0px;
+    z-index: 900;
+    left: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px none #67595e;
+    border-radius: 20px 20px 0px 0px;
+    width: 324px;
+    height: 342px;
+    background-color: #FFFFFF;
+    overflow-y: auto;
+    box-shadow: 0 0 150px 1px;
+    
+    /* position: absolute;
+   
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    background-color: #ffffff;
+    opacity: 100%; */
+    
+
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.30);
+    z-index: 800;
+  }

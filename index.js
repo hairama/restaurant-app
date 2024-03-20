@@ -3,6 +3,7 @@ import { v4 as uuid } from 'https://jspm.dev/uuid'
 
 const appMenu = document.getElementById("app-menu")
 const orderSection = document.getElementById("order-section")
+const paymentModal = document.getElementById("payment-modal")
 let orderArray = []
 
 renderMenu()
@@ -18,7 +19,13 @@ document.addEventListener("click", function(e) {
     if (e.target.dataset.remove) {
         removeMenuItem(e.target.dataset.remove)
     }
-    
+    if (e.target.dataset.complete) {
+        openPaymentModal()
+    }
+    if (e.target.dataset.overlay) {
+        document.getElementById("overlay").style.display = "none"
+        paymentModal.style.display = "none"
+    }
 })
 
 function renderMenu() {
@@ -26,6 +33,8 @@ function renderMenu() {
         const {name, ingredients, product_id, price, emoji} = menuItem
         
         return `
+                <div id="overlay" class="overlay" data-overlay="overlay">
+                </div>
                 <div class="menu-items-container">
                     <div class="menu-item-card">
                         <div class="button-separator">
@@ -88,4 +97,21 @@ function renderOrder() {
                                 <button class="complete-order-button" data-complete="complete">Complete Order</p> 
                             </div>
                             `                           
+}
+
+function openPaymentModal() {
+    paymentModal.innerHTML =    `
+                                <div class="payment-modal">
+                                    <h2>Enter card details</h2>
+                                    <form>
+                                        <input type="text" name="name" placeholder="Enter your name">
+                                        <input type="text" name="card" placeholder="Enter card number">
+                                        <input type="text" name="cvv" placeholder="Enter CVV">
+                                    </form>
+                                    <button>Pay</button>
+                                </div>
+                                `
+    paymentModal.style.display = "flex"
+    document.body.style.overflow = 'hidden'
+    overlay.style.display = 'block'
 }
