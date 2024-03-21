@@ -52,7 +52,8 @@ function renderMenu() {
                 </div>
             </div>
             <div>
-                <button data-product_id="${product_id}" class="add-to-order-btn">+</button>
+                <img src="./add-to-order-button.png"
+                <button data-product_id="${product_id}" class="add-to-order-btn"></button>
             </div>
         </div>
     `
