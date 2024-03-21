@@ -37,8 +37,10 @@ function renderMenu() {
     <div class="menu-items-container">
     `
     appMenuHTML += menuArray.map(function(menuItem){
-        const {name, ingredients, product_id, price, emoji} = menuItem
+        const {name, ingredientList, product_id, price, emoji} = menuItem
         
+        let ingredients = ingredientList.join(', ')
+
         return `      
         <div class="menu-item-card">
             <div class="button-separator">
@@ -52,8 +54,7 @@ function renderMenu() {
                 </div>
             </div>
             <div>
-                <img src="./add-to-order-button.png"
-                <button data-product_id="${product_id}" class="add-to-order-btn"></button>
+                <button data-product_id="${product_id}" class="add-to-order-btn">+</button>
             </div>
         </div>
     `
@@ -83,7 +84,7 @@ function renderOrder() {
     const orderItems = orderArray.map((item) => {
         orderPrice += item.price    
         return `
-                    <div class="order-item">
+                    <div class="order-item-container">
                         <p>${item.name}</p>
                         <button class="remove-item-button" data-remove="${item.orderItemID}">remove</button>
                         <p class="order-item-price">$${item.price}
@@ -93,13 +94,13 @@ function renderOrder() {
     
     orderSection.innerHTML = `
                             <!--<div class="order-section">-->
-                                <h2>Your order</h2>
+                                <h2 class="order-section-title">Your order</h2>
                                 ${orderItems}
-                                <div class="order-total-price">
-                                    <p>Total price:</p>
-                                    <p>$${orderPrice}</p>
+                                <div class="order-total-price-container">
+                                    <p class="order-total-price">Total price:</p>
+                                    <p class="order-total-price">$${orderPrice}</p>
                                 </div>
-                                <button class="complete-or-pay-button" data-complete="complete">Complete Order</p> 
+                                <button class="complete-button" data-complete="complete">Complete Order</p> 
                             <!--</div>-->
                             `                           
 renderMenu()
@@ -130,7 +131,7 @@ function openPaymentModal() {
                                         name="cvv" 
                                         id="cvv"
                                         placeholder="Enter CVV">
-                                        <button class="complete-or-pay-button" data-pay="pay">Pay</button>
+                                        <button class="pay-button" data-pay="pay">Pay</button>
                                     </form>
                                     
                                 </div>
