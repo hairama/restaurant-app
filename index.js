@@ -53,7 +53,7 @@ function renderMenu() {
                     <p class="menu-item-price">$${price}</p>
                 </div>
             </div>
-            <div>
+            <div class="add-to-order-btn-div">
                 <button data-product_id="${product_id}" class="add-to-order-btn">+</button>
             </div>
         </div>

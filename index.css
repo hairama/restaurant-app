@@ -136,24 +136,33 @@ h2 {
                 margin: 12px 0px;
             }
 
-        .add-to-order-btn {
+        .add-to-order-btn-div {
             aspect-ratio: 1;
             display: grid;
             place-items: center;
-
+              
+            -webkit-appearance: none;
             height: 50px;
             line-height: 40px;  
-            width: 50px;  
-            
-            background-color: #FFFFFF;
+            width: 50px;
             border: 1.5px solid #DEDEDE; 
-            border-radius: 100px;
+            border-radius: 100%;
             color: #3C3C3C;
             text-align: center;
             font-size: 32px;
             font-family: 'Inter', Verdana, Geneva, Tahoma, sans-serif;
-            cursor: pointer;
+            
         }
+
+            .add-to-order-btn {
+                background-color: #FFFFFF;
+                border: none;
+                border-radius: 100%;
+                height: 50px;
+                line-height: 40px;  
+                width: 50px;
+                cursor: pointer;
+            }
 
 /* ORDER SECTION */
 
