@@ -30,32 +30,35 @@ document.addEventListener("click", function(e) {
 
 
 function renderMenu() {
-    appMenu.innerHTML = menuArray.map(function(menuItem){
+    
+    let appMenuHTML = `
+    <div id="overlay" class="overlay" data-overlay="overlay">
+    </div>
+    <div class="menu-items-container">
+    `
+    appMenuHTML += menuArray.map(function(menuItem){
         const {name, ingredients, product_id, price, emoji} = menuItem
         
-        return `
-                <div id="overlay" class="overlay" data-overlay="overlay">
-                </div>
-                <div class="menu-items-container">
-                    <div class="menu-item-card">
-                        <div class="button-separator">
-                            <div>
-                                <p class="menu-card-emoji">${emoji}</p>
-                            </div>
-                            <div>
-                                <p class="menu-item-title">${name}</p>
-                                <p class="menu-item-ingredients">${ingredients}</p>
-                                <p class="menu-item-price">$${price}</p>
-                            </div>
-                        </div>
-                        <div>
-                            <button data-product_id="${product_id}" class="add-to-order-btn">+</button>
-                        </div>
-                    </div>
+        return `      
+        <div class="menu-item-card">
+            <div class="button-separator">
                 <div>
-                `
+                    <p class="menu-card-emoji">${emoji}</p>
+                </div>
+                <div>
+                    <p class="menu-item-title">${name}</p>
+                    <p class="menu-item-ingredients">${ingredients}</p>
+                    <p class="menu-item-price">$${price}</p>
+                </div>
+            </div>
+            <div>
+                <button data-product_id="${product_id}" class="add-to-order-btn">+</button>
+            </div>
+        </div>
+    `
     }).join('')
-
+    appMenuHTML += `<div>`
+    appMenu.innerHTML = appMenuHTML
 }
 
 function addMenuItem(selectedMenuObject){
@@ -88,7 +91,7 @@ function renderOrder() {
         }).join('')
     
     orderSection.innerHTML = `
-                            <div class="order-section">
+                            <!--<div class="order-section">-->
                                 <h2>Your order</h2>
                                 ${orderItems}
                                 <div class="order-total-price">
@@ -96,8 +99,9 @@ function renderOrder() {
                                     <p>$${orderPrice}</p>
                                 </div>
                                 <button class="complete-or-pay-button" data-complete="complete">Complete Order</p> 
-                            </div>
+                            <!--</div>-->
                             `                           
+renderMenu()
 }
 
 function openPaymentModal() {
