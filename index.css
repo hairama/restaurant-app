@@ -24,10 +24,12 @@
           .remove-item-button
           .order-item-price
         .order-total-price
-        .complete-or-pay-button (also used in payment modal below)
+        .complete-button
+        .post-payment-thank-you-message
     * PAYMENT MODAL
       .payment-modal
       <input
+      .complete-button
 */
 
     /* GLOBAL STYLING */
@@ -62,11 +64,11 @@ h2 {
     display: flex;
     flex-direction: column;
     max-width: 600px;
-    margin: 45px;
+    margin: 45px auto;
 }
 
 .overlay {
-    background-color: rgba(0, 0, 0, 0.30);
+    background-color: rgba(0, 0, 0, 0.40);
     display: none;
     position: fixed;
     z-index: 900;
@@ -113,11 +115,13 @@ h2 {
         .button-separator {
             display: flex;
             flex-direction: row;
-            gap: 15px;
+            gap: 25px;
         }
             .menu-card-emoji {
                 font-size: 64px;
                 margin: 0px;
+                width: 70px;
+                height: 89px;
             }
 
             .menu-item-title {
@@ -136,11 +140,11 @@ h2 {
                 margin: 12px 0px;
             }
 
-        .add-to-order-btn-div {
+        .add-to-order-btn {
             aspect-ratio: 1;
             display: grid;
             place-items: center;
-              
+            background-color: #FFFFFF;
             padding: 1px;
             height: 50px;
             line-height: 40px;  
@@ -151,22 +155,12 @@ h2 {
             text-align: center;
             font-size: 32px;
             font-family: 'Inter', Verdana, Geneva, Tahoma, sans-serif;
-            
+            cursor: pointer;
         }
 
-            .add-to-order-btn {
-                aspect-ratio: 1;
-                display: grid;
-                place-items: center;
-                background-color: #FFFFFF;
-                border: none;
-                border-radius: 100px;
-                height: 50px;
-                line-height: 0px;  
-                width: 50px;
-                cursor: pointer;
-                padding-bottom: 5px;
-            }
+        .add-to-order-btn:hover {
+            background-color: #DEDEDE;
+        }
 
 /* ORDER SECTION */
 
@@ -186,7 +180,7 @@ h2 {
     .order-item-container {
         display: flex;
         font-size: 28px; 
-        gap: 5px;
+        gap: 15px;
         align-items: center;
         justify-content: space-between; 
         height: 24px;
@@ -233,38 +227,33 @@ h2 {
         width: 100%;
         cursor: pointer;
     } 
-
+.post-payment-thank-you-message {
+    color: #065F46;
+    background-color: #ECFDF5;
+    font-size: 32px;
+    margin: 0px;
+    padding: 0px;
+}
 
 /* PAYMENT MODAL*/
 
 .payment-modal {
     background-color: #FFFFFF;
     position: fixed;
-    top: 0px;
+    top: 10%;
     left: 0px;
-    /* display: flex;
-    flex-direction: column;
     
-    align-items: center;
-    justify-content: center;
-    
-    
-    width: 300px;
-    height: 345px;
     margin: 40px;
-    padding: 25px; */
-    z-index: 1000;
-
+    padding: 30px 25px;
     
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 900;
     font-size: 24px;
     text-align: center;
-    overflow-y: auto; 
-   
+    font-weight: 900;
     
     border: 1px none #67595e;
     box-shadow: 0 0 150px 1px;
+    z-index: 1000;
 }
 
     .payment-form {
@@ -273,13 +262,14 @@ h2 {
     }
 
     input{
-        border: 1px solid #757575;
-        padding: 8px;
-        margin: 12px 40px 12px 0px;
+        width: calc(100% - 40px);
+        border: 1.3px solid #757575;
+        padding: 15px 20px;
+        margin: 10px 40px 10px 0px;
         border-radius: 3.89px;
         height: 40px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .pay-button {
@@ -287,13 +277,15 @@ h2 {
         border-radius: 3px;
         color: #ffffff;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 16px;
+        font-size: 20px;
         font-weight: bold;
         border: none;
-        height: 46px;
-        line-height: 46px;
+        height: 71px;
+        line-height: 71px;
         display: block;
         padding: 0px 0px 35px 0px;
         width: 100%;
         cursor: pointer;
+        margin-top: 30px;
+
     } 
