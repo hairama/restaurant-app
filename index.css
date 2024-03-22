@@ -29,7 +29,7 @@
     * PAYMENT MODAL
       .payment-modal
       <input
-      .complete-button
+      .pay-button
 */
 
     /* GLOBAL STYLING */
@@ -37,38 +37,39 @@ body, html {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 0px;
+    margin: 0px auto;
     padding: 0px;
     user-select: none;
     overflow: visible;
     font-size: 20px;
     font-family: "Smythe", Verdana, Geneva, Tahoma, sans-serif, system-ui;
     font-weight: 400;
-    font-style: normal;
+}
+
+h1, h2 {
+    font-weight: 400;    
 }
 
 h1 {
     margin-top: 46px;
     font-size: 39px;
-    font-weight: 400; 
 }
 
 h2 {
     margin-top: 12px;
     font-size: 21px;
-    font-weight: 400; 
 }
 
   .main-container {
     background: #fff;
+    max-width: 600px;
+    margin: 45px;
     display: flex;
     flex-direction: column;
-    max-width: 600px;
-    margin: 45px auto;
 }
 
 .overlay {
-    background-color: rgba(0, 0, 0, 0.40);
+    background-color: rgba(0, 0, 0, 0.25);
     display: none;
     position: fixed;
     z-index: 900;
@@ -82,17 +83,17 @@ h2 {
   .header {
     background: url('./restaurant-header.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-position: bottom;
+    background-size: cover; 
     color: #fff;
+    text-shadow: 1px 1px 2px darkslategrey;
     padding-left: 46px;
     height: 167px;
   }
   
     .header-title {
-        margin: 0;
         font-size: 39px;
         font-style: normal;
-        font-weight: 400;
         line-height: 24px;
     }
 
@@ -226,7 +227,8 @@ h2 {
         padding: 0px 0px 35px 0px;
         width: 100%;
         cursor: pointer;
-    } 
+    }
+     
 .post-payment-thank-you-message {
     color: #065F46;
     background-color: #ECFDF5;
@@ -242,15 +244,12 @@ h2 {
     position: fixed;
     top: 10%;
     left: 0px;
-    
     margin: 40px;
     padding: 30px 25px;
-    
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 24px;
     text-align: center;
     font-weight: 900;
-    
     border: 1px none #67595e;
     box-shadow: 0 0 150px 1px;
     z-index: 1000;
