@@ -2,6 +2,7 @@
     TABLE OF CONTENTS
     * GLOBAL
       <body, html, 
+      <h1, <h2
       <h2
       .main-container (for the whole application)
       .overlay (used to emphasize/close the payment modal)
@@ -16,7 +17,8 @@
            .menu-item-title 
            .menu-item-ingredients
           .menu-item-price
-        .add-to-order-btn 
+        .add-to-order-btn
+        .add-to-order-btn:hover 
     * ORDER SECTION
       .order-section
         .order-section-title
@@ -63,7 +65,8 @@ h2 {
   .main-container {
     background: #fff;
     max-width: 600px;
-    margin: 45px;
+    margin: 0 auto;
+    padding: 0 1em;
     display: flex;
     flex-direction: column;
 }
@@ -228,7 +231,7 @@ h2 {
         width: 100%;
         cursor: pointer;
     }
-     
+
 .post-payment-thank-you-message {
     color: #065F46;
     background-color: #ECFDF5;
